@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>实验3 数组</title>
+		<script src="../../js/jquery-3.4.1.js"></script>
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+			}
+			
+			ul {
+				text-align: center;
+			}
+			
+			li {
+				float: left;
+				list-style-type: none;
+			}
+			
+			a {
+				display: inline-block;
+				text-decoration: none;
+				color: black;
+				padding: 5px 50px;
+				background-color: #CCCCCC;
+			}
+			
+			a:hover {
+				background-color: pink;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--一、数组创建、遍历、元素的添加修改-->
+		<script>
+			//			空数组
+			var arr3 = new Array(); // 或var arr3=new Array;
+			var arr4 = [];
+			//			创建含空存储位置的数组
+			var arr5 = [1, , 2, , 3]
+			//			获取数组长度
+			//			数组名.length
+			//			遍历数组
+			//			for... in {} //for(var 索引下标 in object数组变量名){}
+			//			for... of {} //for(var 索引下标 of object数组变量名){}
+			//			添加元素
+			//			修改元素
+			//			数组名[下标] = 值;
+			//			删除元素
+			//			delete 数组名 = [下标];
+			//			解构赋值
+			//			[a, b, c, d] = [1, 2, 3, 4];
+			//var area=[1,2,3,4];
+			//var a=area[0];
+			//var b=area[1];
+			//var c=area[2];
+			//var d=area[3];
+			//			console.log(a, b, c, d);
+		</script>
+		<!--二、多维数组-->
+		<script>
+			//	创建也遍历
+			//			空二维数组
+			var arr5 = new Array(new Array(), new Array());
+			var arr6 = [
+				[],
+				[]
+			];
+		</script>
+		<!--三、冒泡排序-->
+		<script>
+			//			1.冒泡排序
+			var arrmax = [45, 20, 88, 12, 58, 76, 99];
+
+			//			2.插入排序
+		</script>
+		<!--四、常见数组方法-->
+		<script>
+			//			1.栈方法 添加/移除元素
+			//			数组名.push() 数组 末尾添加元素，并返回数组长度
+			//			数组名.unshift() 数组 开头添加元素，并返回数组长度
+			//			数组名.pop() 数组 末尾移除元素，并返回数组长度
+			//			数组名.shift() 数组 开头移除元素，并返回数组长度
+			//			2.检索方法
+			//			3.数组转字符串
+			//			4.其他方法
+		</script>
+		<!--五、案例练习-->
+		<!--1. 移出数组arr[1,2,3,4,2,5,6,2,7,2]中与2相等的元素，并生成一个新数组，不改变原数组。-->
+		<script>
+			//		创建数组	
+			var arr = [1, 2, 3, 4, 2, 5, 6, 2, 7, 2];
+			//		遍历数组
+			for(var i = 0; i <= arr.length - 1; i++) {
+				//		生成新的空数组
+				var newarr = [];
+				//		判断将arr数组中不等于2的元素添加到刚生成的空数组中
+				if(arr[i] !== 2) {
+					//			将数组arr中不等于2的元素添加到刚生成的空数组中
+					newarr.push(arr[i]);
+					//		输出新数组
+					console.log(newarr);
+				}
+
+			}
+		</script>
+		<!--2、循环数组生成导航栏-->
+		<div class="nav" id="navlist"></div>
+		<script>
+			//		新建数组,定义导航栏	
+			var navlist = ['首页', '免费资源', '课程中心', 'IT学院', '学员故事', '线上学院', '技术社区'];
+			var str = '<ul>';
+
+			//循环生成导航
+			for(var i in navlist) {
+				//	保存在变量str中
+				str += '<li><a href="#">' + navlist[i] + '</a></li>';
+
+			}
+			str += '</ul>';
+			//输出
+			document.getElementById('navlist').innerHTML = str;
+		</script>
+		<!--3、求最大最小值-->
+		<script>
+			var arr2 = [100, 7, 65, 54, 12, 6]; //	定义待查找数组
+			var min = max = arr2[0]; //定义数组第一个元素为最大最小值 
+			//			循环数组
+			for(var i = 0; i < arr2.length; ++i) {
+				if(arr2[i] > max) { //判断,如果当前数组元素比max大,则修改最大值
+					max = arr2[i];
+				}
+				if(arr2[i] < min) { //判断,如果当前数组元素比min小,则修改最不值
+					min = arr2[i];
+				}
+
+			}
+			//			控制面板输出
+			console.log('待查找数组：' + arr2);
+			console.log('最大值：' + max);
+			console.log('最小值：' + min);
+		</script>
+		<!--4、二维数组遍历求和-->
+		<script>
+			var arr7 = [
+				[12, 6, 89, 77],
+				[55, 99, 50, 45]
+			];
+			var sum = 0;
+			for(var i in arr7) {
+				for(var j in arr7[i]) {
+					sum += arr7[i][j];
+				}
+			}
+			console.log('待求和的二维数组：' + arr7);
+			console.log('和为：' + sum);
+		</script>
+		<!--5、二维数组转置-->
+		<script>
+			var arr9 = [
+				[1, 2, 3],
+				[4, 5, 6],
+				[7, 8, 9],
+				[10, 11, 12]
+			];
+			var arr10 = [];
+			for(var i = 0; i < arr9[0].length; ++i) {
+				arr10[i] = [];
+				for(var j = 0; j < arr9.length; ++j) {
+					arr10[i][j] = arr9[j][i];
+
+				}
+			}
+			console.log('置换后数组为：' + arr10);
+		</script>
+		<!--6、猴子选大王-->
+		<script>
+		</script>
+		<!--7、省市城市三级联动-->
+		<!--编写HTML页面下拉菜单-->
+		<p>
+			<select id="province">
+				<option value="-1">请选择</option>
+				<!--option的value属性表示地区对应的数组下标，由于数组下标从0开始，
+												为了避免程序将其识别为某个地区，因此将value属性设置为-1-->
+
+			</select>
+			<select id="city">
+			</select>
+			<select id="country">
+			</select>
+		</p>
+		<!--利用数组保存地区数据-->
+		<script>
+			var provincearr = ['上海', '江苏', '河北'];
+			var cityarr = [
+				['上海市'],
+				['苏州市', '南京市', '扬州市'],
+				['石家庄', '秦皇岛', '张家口']
+			];
+			var countryarr = [
+				['黄浦区', '静安区', '长宁区', '浦东区'],
+				[
+					['苏州市区', '苏州市区', '苏州市区', '苏州市区'],
+					['南京区', '南京安区', '南京宁区', '黄浦东区'],
+					['扬州市', '扬州市', '扬州市宁区', '扬州市东区']
+				],
+				[
+					['黄浦区', '静安区', '长宁区', '浦东区'],
+					['黄浦区', '静安区', '长宁区', '浦东区'],
+					['黄浦区', '静安区', '长宁区', '浦东区']
+				],
+			];
+			//自动创建省份下拉菜单
+			function createOption(obj, data) {
+				for(var i in data) {
+					var op = new Option(data[i], i);
+					obj.options.add(op);
+				}
+			}
+			//			根据选择自动生成下拉菜单
+			var province = document.getElementById('province');
+			createOption(province, provincearr);
+			var city = document.getElementById('city');
+			province.onchange = function() {
+				city.options.length = 0;
+				createOption(city, cityarr[province.value]);
+			}
+			var country = document.getElementById('country');
+			city.onchange = function() {
+				country.options.length = 0;
+				createOption(country, countryarr[province.value][city.value]);
+			}
+			//			修改省份的onchange事件
+			province.onchange = function() {
+				city.options.length = 0;
+				createOption(city, cityarr[province.value]);
+				if(province.value >= 0) {
+					city.onchange();
+				} else {
+					country.options.length = 0;
+				}
+			};
+		</script>
+		<!--8、利用index.Of()统计数组中某个元素出现的个数，并同时返回索引下标-->
+		<script>
+			var arr11 = ['d', 'b', 'd', 'd', 'c', 'd', 'd']; //			待求数组 
+			var arr12 = [];
+			var a = 0;
+			b = 0;
+			for(var i = 0; i <= arr11.length; ++i) {
+				if(arr11[i] == 'd') {
+					a++;
+					arr12[b] = i;
+					b++;
+				}
+			}
+			console.log('d出现的次数为:' + a);
+			console.log('d出现的索引下标依次为:' + arr12);
+			console.log(arr12);
+		</script>
+		<!--9、随机生成10-100的10个元素数组-->
+		<script>
+		</script>
+		<!--后置/前置++ -- 的区别/-->
+		<script>
+			var a = 2;
+			b = a++;
+			console.log(b, a);
+		</script>
+		<!--	多维空数组添加元素来创建多维数组 -->
+		<script>
+			var arr8 = [];
+			for(var i = 0; i < 5; ++i) {
+				arr8[i] = [];
+				arr8[i][0] = i;
+			}
+			console.log(arr8);
+		</script>
+	</body>
+
+</html>

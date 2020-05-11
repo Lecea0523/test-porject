@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验2</title>
+</head>
+
+<body>
+
+    <h2> 1、计算圆的周长和面积</h2>
+
+    <div>
+        <p>请输入一个数：<input type="number" id="r1">
+            <button id="js">计算</button></p>
+        <p>圆的半径：<input id="r" type="text"></p>
+        <p>圆的周长：<input id="cir" type="text"></p>
+        <p>圆的面积：<input id="area" type="text"></p>
+    </div>
+    <script>
+        js.onclick = function() {
+            var r = document.getElementById('r1').value;
+            r = parseFloat(r) && Number(r); //获取输入的纯数字,其余情况皆转换为NaN
+            if (!isNaN(r)) { //判断用户输入的是否为数值
+                var area = Math.PI * r * r; // "Math.PI"表示一个圆的周长与直径的比例，即π约为3.14159。toFixed(2)方法表示保留2位小数
+                var cir = 2 * Math.PI * r;
+
+                document.getElementById('r').value = r;
+                document.getElementById('cir').value = cir.toFixed(2);
+                document.getElementById('area').value = area.toFixed(2);
+            } else {
+                alert("请输入正确的数字")
+            }
+        }
+    </script>
+
+    <h2>2、四则运算</h2>
+    <div>
+        <p>请输入第一个数：
+            <input type="number" id="num1"></p>
+        <p>请输入第二个数：
+            <input type="number" id="num2"></p>
+        <p>
+            <button id="btn-add">加</button>
+            <button id="btn-up">减</button>
+            <button id="btn-mul">乘</button>
+            <button id="btn-chu">除</button></p>
+        <p>运算结果：
+            <input type="number" id="result"></p>
+    </div>
+    <script>
+        document.getElementById('btn-add').onclick = function() {
+            var a = parseFloat(Number(document.getElementById('num1').value));
+            var b = parseFloat(Number(document.getElementById('num2').value));
+
+            document.getElementById('result').value = a + b;
+
+
+        };
+        document.getElementById('btn-up').onclick = function() {
+            var a = parseFloat(Number(document.getElementById('num1').value));
+            var b = parseFloat(Number(document.getElementById('num2').value));
+            document.getElementById('result').value = a - b;
+        };
+        document.getElementById('btn-mul').onclick = function() {
+            var a = parseFloat(Number(document.getElementById('num1').value));
+            var b = parseFloat(Number(document.getElementById('num2').value));
+            document.getElementById('result').value = a * b;
+        };
+        document.getElementById('btn-chu').onclick = function() {
+            var a = parseFloat(Number(document.getElementById('num1').value));
+            var b = parseFloat(Number(document.getElementById('num2').value));
+            document.getElementById('result').value = a / b;
+        };
+    </script>
+    <h2>3、流程控制-选择（等级测评）</h2>
+    <div>
+        <p>请输入你的成绩：<input type="number" id="cj"></p>
+        <p>
+            <button id="cx">查询</button>
+        </p>
+
+    </div>
+    <script>
+        // var cx = document.getElementById('cx').value;
+
+        cx.onclick = function() {
+            var cj = document.getElementById('cj').value;
+            cj = parseFloat(cj) && Number(cj);
+            if (isNaN(cj)) {
+                alert('你输入的格式不正确！');
+            } else if (cj >= 90) {
+
+                alert('你的成绩等级是：优秀')
+            } else if (cj >= 80) {
+
+                alert('你的成绩等级是：良好')
+            } else if (cj >= 70) {
+
+                alert('你的成绩等级是：中等')
+            } else if (cj >= 60) {
+
+                alert('你的成绩等级是：合格')
+            } else {
+
+                alert('你的成绩等级是：不合格')
+            }
+
+        }
+    </script>
+
+    <h2> 4、流程控制-循环（100内偶数的和）</h2>
+    <script>
+        var i = sum = 0;
+        while (i <= 100) {
+            if (!(i % 2)) {
+                sum += i;
+            }
+            i++;
+        }
+        alert('100内偶数的和为' + sum);
+    </script>
+    <h2> 5、流程控制-循环（打印金字塔）</h2>
+    <script>
+        var level = prompt('请设置金字塔的层数');
+        level = parseFloat(level) && Number(level);
+        if (isNaN(level)) {
+            alert('金字塔层数必须是数字！')
+        } else {
+            for (var i = 1; i <= level; ++i) {
+                var blank = level - i;
+                for (var k = 0; k < blank; ++k) {
+                    document.write('&nbsp;');
+                }
+                var star = i * 2 - 1;
+                for (var j = 0; j < star; ++j) {
+                    document.write('*');
+
+                }
+                document.write('<br>');
+            }
+        }
+    </script>
+    <h2>6、流程控制-循环（九九乘法表）</h2>
+    <script>
+        for (var i = 1; i < 10; i++) {
+            for (var j = 1; j <= i; j++) {
+                sum = j * i;
+                document.write(j + '*' + i + '=' + sum);
+                document.write('&nbsp;&nbsp;&nbsp;&nbsp;')
+            }
+            document.write('<br><br>')
+        }
+    </script>
+    <h2>7、红黑球个数</h2>
+    <!-- 有红、白、黑三种球若干，其中红球和白球共25个，白球和黑球共31个，红球和黑球共28个，求三种球共多少个？ -->
+    <script>
+        for (var white = 0; white <= 25; white++) {
+            var red = 25 - white;
+            var black = 31 - white;
+            if (red + black == 28) {
+                document.write("白球：" + white + '<br>' + "红球：" + red + '<br>' + "黑球：" + black);
+            }
+        }
+    </script>
+
+</body>
+<script src="../../js/jquery-3.4.1.js"></script>
+
+</html>
