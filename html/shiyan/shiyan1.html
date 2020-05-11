@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验1</title>
+    <style>
+        /* 3、更改背景图片 */
+        
+        body {
+            padding: 0;
+            margin: 0;
+            background-image: url('../../img/spring.jpg');
+        }
+        
+        li {
+            list-style-type: none;
+            float: left;
+        }
+        
+        li img {
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1、更换背景颜色 -->
+    <input type='button' value="pink" onclick="color('pink')">
+    <input type='button' value="black" onclick="color('black')">
+    <input type='button' value="yellow" onclick="color('yellow')">
+    <input type='button' value="blue" onclick="color('blue')">
+    <!-- 3、更改背景图片 -->
+    <ul class="baidu">
+        <li><img src="../../img/spring.jpg"></li>
+        <li><img src="../../img/spring1.jpg"></li>
+        <li><img src="../../img/spring2.jpg"></li>
+        <li><img src="../../img/spring3.jpg"></li>
+
+    </ul>
+
+</body>
+<!-- 1、更换背景颜色 -->
+<script>
+    function color(bgcolor) {
+        document.body.style.backgroundColor = bgcolor;
+    }
+</script>
+<!-- 2、登录密码认证 -->
+<script>
+    var password = prompt('请输入密码');
+    if (password == '123456') {
+        alert('密码输入正确');
+    } else {
+        alert('密码输入错误');
+
+    }
+</script>
+<!-- 3、更改背景图片 -->
+<script>
+    var imgs = document.querySelector('.baidu').querySelectorAll('img');
+    for (var i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = function() {
+            // console.log(this.src);
+            document.body.style.backgroundImage = 'url(' + this.src + ')'
+
+        }
+    }
+</script>
+
+</html>
